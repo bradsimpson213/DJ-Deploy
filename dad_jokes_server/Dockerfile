@@ -5,7 +5,7 @@ WORKDIR /dad_jokes_client
 COPY dad_jokes_client/. .
 
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL='https://best-dad-jokes-app.herokuapp.com'
+ENV REACT_APP_BASE_URL='https://dad-jokes-a.herokuapp.com/'
 
 # Build our React App
 RUN npm install
