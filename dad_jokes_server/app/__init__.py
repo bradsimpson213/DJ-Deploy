@@ -2,6 +2,7 @@ from flask import Flask
 from .config import Config
 from .seeds import seed_commands
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 from .api.user_routes import user_routes
 from .api.joke_routes import jokes
@@ -18,35 +19,29 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 
 Migrate(app, db)
 
+# Application Security
+CORS(app)
+
 app.cli.add_command(seed_commands)
 
-# @app.route('/')
-# def home():
-#     jokes = Joke.query.all()
-#     joke = choice(jokes)
-#     return render_template('index.html', page="Home", joke=joke)
 
+# Since we are deploying with Docker and Flask,
+# we won't be using a buildpack when we deploy to Heroku.
+# Therefore, we need to make sure that in production any
+# request made over http is redirected to https.
+# Well.........
+@app.before_request
+def https_redirect():
+    if os.environ.get('FLASK_ENV') == 'production':
+        if request.headers.get('X-Forwarded-Proto') == 'http':
+            url = request.url.replace('http://', 'https://', 1)
+            code = 301
+            return redirect(url, code=code)
+            
 
-# @app.route('/jokes')
-# def all_jokes():
-#     jokes = Joke.query.all()
-#     return render_template('alljokes.html', page="All Jokes", jokes=jokes)
-
-
-
-# @app.route('/addjoke', methods=['GET', 'POST'])
-# def add_jokes():
-#     form = JokeForm()
-
-#     if form.validate_on_submit():
-        
-#         new_joke= Joke(
-#             joke_body=form.data['joke'],
-#             punchline=form.data['punchline'],
-#             rating=form.data['rating'],
-#         )
-#         db.session.add(new_joke)
-#         db.session.commit()
-#         return redirect('/jokes')
-    
-#     return render_template("jokeform.html", page="Joke Form", form=form, errors=form.errors)
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def react_root(path):
+    if path == 'favicon.ico':
+        return app.send_static_file('favicon.ico')
+    return app.send_static_file('index.html')
