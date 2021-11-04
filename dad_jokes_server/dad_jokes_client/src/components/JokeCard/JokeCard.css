@@ -1,0 +1,30 @@
+.joke-card {
+    height: 400px;
+    width: 300px;
+    border: 2px solid whitesmoke;
+    border-radius: 20px;
+    margin: 20px;
+    
+}
+
+.joke-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.rating{
+   font-weight: 900;
+   margin-top: 0px;
+   border-top-right-radius: 20px;
+   border-top-left-radius: 20px;
+   background-color: black;
+}
+
+.punchline {
+    font-style: italic;
+}
+
+
+

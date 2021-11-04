@@ -1,0 +1,34 @@
+.nav-bar {
+    border: 2px solid whitesmoke;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    height: 90px;
+}
+
+.active {
+    color:red;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.jokes-num {
+    display: flex;
+    font-size: 24px;
+}
+
+.input-num {
+    font-size: 22px;
+    width: 60px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.button-link {
+    border: 2px solid whitesmoke;
+    border-radius: 12px;
+}

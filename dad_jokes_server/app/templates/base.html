@@ -1,0 +1,18 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+        <title>Dad Jokes - {{ page }}</title>
+    </head>
+    <nav>
+        <a href="/api/jokes/" >Home</a>
+        <span> - </span>
+        <a href="/api/jokes/jokes">See All Jokes</a>
+        <span> - </span>
+        <a href="/api/jokes/addjoke">Add a New Joke</a>
+    </nav>
+    <body>
+        {% block content %} {% endblock %}
+    </body>
+
+</html>

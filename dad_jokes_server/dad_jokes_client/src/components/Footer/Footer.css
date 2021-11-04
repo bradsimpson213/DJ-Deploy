@@ -1,0 +1,27 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 5vh; 
+    width: 100%;  
+    border-top: 1px solid whitesmoke;   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 1rem;
+    background-color: black;
+}
+
+.text {
+    color: whitesmoke;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 15px 0 15px;
+}
+
+.icons {
+    margin: 7px 10px 0 10px;
+    border: none;
+}
