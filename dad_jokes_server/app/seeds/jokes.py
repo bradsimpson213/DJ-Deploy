@@ -362,6 +362,11 @@ def seed_jokes():
             "punchline": "...it was riveting",
             "rating": "G",
             "user": choice(users)
+        },
+        {   "joke_body": "My friend David lost his id...",
+            "punchline": "...now I just call him Dave",
+            "rating": "G",
+            "user": choice(users)
         }
     ]
   
