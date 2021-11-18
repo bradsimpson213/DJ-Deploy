@@ -367,6 +367,11 @@ def seed_jokes():
             "punchline": "...now I just call him Dave",
             "rating": "G",
             "user": choice(users)
+        },
+        {   "joke_body": "where does a lizard go after it loses its tail?",
+            "punchline": "...a retail store",
+            "rating": "G",
+            "user": choice(users)
         }
     ]
   
