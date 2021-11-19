@@ -372,6 +372,11 @@ def seed_jokes():
             "punchline": "...a retail store",
             "rating": "G",
             "user": choice(users)
+        },
+        {   "joke_body": "how much does it cost Santa to park his sleigh?",
+            "punchline": "...Nothing! It's on the house",
+            "rating": "G",
+            "user": choice(users)
         }
     ]
   
