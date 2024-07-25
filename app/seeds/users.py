@@ -1,4 +1,4 @@
-from app.models import db, User, environment
+from app.models import db, User, environment, SCHEMA
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():

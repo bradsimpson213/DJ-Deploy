@@ -1,4 +1,4 @@
-from app.models import db, Joke, User, environment
+from app.models import db, Joke, User, environment, SCHEMA
 from random import choice
 
 # Adds seed jokes, you can add other jokes here if you want
