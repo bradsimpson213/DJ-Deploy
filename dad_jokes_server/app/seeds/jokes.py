@@ -1,4 +1,4 @@
-from app.models import db, Joke, User
+from app.models import db, Joke, User, environment
 from random import choice
 
 # Adds seed jokes, you can add other jokes here if you want
@@ -398,5 +398,9 @@ def seed_jokes():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_jokes():
-    db.session.execute('TRUNCATE jokes CASCADE;')
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.jokes RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute("DELETE FROM jokes")
+        
     db.session.commit()
