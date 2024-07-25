@@ -3,14 +3,21 @@ import { useJokes } from "../../context/JokesContext";
 import JokeCard from "../JokeCard";
 import "./JokePage.css";
 
+
 const JokesPage = () => {
     const { numJokes, getRandomJokes } = useJokes();
     const [ jokes, setJokes ] = useState([]);
+    const [ toggle, setToggle] = useState(false)
 
-    useEffect( async ()=> {
+    // rewrite below async in useEffect
+    const getAsyncJokes = async () => {
         const newJokes = await getRandomJokes(numJokes)
         setJokes(newJokes);
-    }, [numJokes])
+    }
+
+    useEffect( ()=> {
+        getAsyncJokes()
+    }, [numJokes, toggle])
     
 
     return (
@@ -19,7 +26,7 @@ const JokesPage = () => {
             <p 
                 style={{ fontStyle:"italic" }}
             >
-                Click on a Joke Card to See the Punchline!
+                Click the joke card to reveal its punchline!
             </p>
             <div
                 className="card-holder"
@@ -28,6 +35,12 @@ const JokesPage = () => {
                   <JokeCard joke={joke} key={joke.id}/>
                 )) : ''}
             </div>
+            <button
+                onClick={ () => setToggle(prevState => !prevState)}
+                className="refresh-button"
+            >
+                Refresh Tomfoolery!
+            </button>
         </div>
     );
 };

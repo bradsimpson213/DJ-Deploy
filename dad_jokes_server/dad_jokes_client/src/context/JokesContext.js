@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from "react";
 export const JokesContext = createContext()
 
 export const JokesProvider = (props) => {
-  const [numJokes, setNumJokes] = useState(5)
+  const [numJokes, setNumJokes] = useState(3)
 
   const getRandomJokes = async (num) => {
     if ( num > 40) {

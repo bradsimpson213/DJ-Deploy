@@ -41,6 +41,11 @@ const Home = () => {
                 <JokeCard joke={ joke } />
             </div>
             </div>
+                <p 
+                    style={{ fontStyle:"italic", fontSize:"20px" }}
+                >
+                    Click the joke card to reveal its punchline!
+                </p>
                 <Link 
                     to="/jokes" 
                     className="button-link" 

@@ -10,7 +10,7 @@ const Footer = () => {
 const { linkedin, github, email } = profileLinks;
 return (
     <footer className="footer">
-        <span className="text">Created by Brad Simpson ©2021</span>
+        <span className="text">Created by Brad Simpson ©2024</span>
         <a href={github} >
             <FaGithub className="icons"/>
         </a>

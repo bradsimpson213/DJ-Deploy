@@ -36,7 +36,7 @@ const Navbar = () => {
                     htmlFor="jokesNum"
                     style={{marginTop: "10px"}}
                 >
-                    Number of Jokes to display: 
+                    Jokes displayed: 
                 </label>
                 <input 
                     type="number"

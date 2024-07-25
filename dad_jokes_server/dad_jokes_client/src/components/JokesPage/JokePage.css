@@ -6,3 +6,12 @@
     margin-bottom: 7vh;
 }
 
+.refresh-button {
+    border: 2px solid whitesmoke;
+    border-radius: 12px;
+    background-color: black;
+    color: orange;
+    font-size: 26px;
+    margin: 10px;
+    padding: 10px;
+}
