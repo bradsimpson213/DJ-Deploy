@@ -1,5 +1,5 @@
 
-FROM node:12 AS build-stage
+FROM node:16 AS build-stage
 
 WORKDIR /dad_jokes_client
 COPY dad_jokes_client/. .
@@ -11,22 +11,34 @@ ENV REACT_APP_BASE_URL='https://dad-jokes-a.herokuapp.com/'
 RUN npm install
 RUN npm run build
 
-FROM python:3.8
 
-# Setup Flask environment
-ENV FLASK_APP=app
-ENV FLASK_ENV=production
-ENV SQLALCHEMY_ECHO=True
+FROM python:3.9.18-alpine3.18
 
-EXPOSE 8000
+RUN apk add build-base
+
+RUN apk add postgresql-dev gcc python3-dev musl-dev
+
+ARG FLASK_APP
+ARG FLASK_ENV
+ARG DATABASE_URL
+ARG SCHEMA
+ARG SECRET_KEY
 
 WORKDIR /var/www
-COPY . .
-COPY --from=build-stage /dad_jokes_client/build/* app/static/
 
-# Install Python Dependencies
+COPY requirements.txt .
+
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
 
-# Run flask environment
+COPY . .
+COPY --from=build-stage /dad_jokes_client/build/* app/static/
+
+RUN flask db upgrade
+RUN flask seed all
 CMD gunicorn app:app
+
+
+
+
+
