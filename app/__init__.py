@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, request 
 from .config import Config
 from .seeds import seed_commands
 from flask_migrate import Migrate
