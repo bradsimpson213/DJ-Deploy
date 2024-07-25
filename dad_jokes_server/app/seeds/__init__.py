@@ -12,6 +12,7 @@ def seed():
     seed_users()
     seed_jokes()
     # Add other seed functions here
+    print("DB SEEDED")
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -19,3 +20,4 @@ def undo():
     undo_users()
     undo_jokes()
     # Add other undo functions here
+    print("DB DESTROYED")

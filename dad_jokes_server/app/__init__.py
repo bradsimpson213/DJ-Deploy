@@ -8,7 +8,7 @@ from .api.user_routes import user_routes
 from .api.joke_routes import jokes
 
 from .models import db
-
+import os
 
 app = Flask(__name__)
 
