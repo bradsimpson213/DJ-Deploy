@@ -18,7 +18,7 @@ const Home = () => {
     }, [])
  
     return (
-        <div>
+        <div className='main-page-container'>
             <h1>Welcome to Dad Jokes!</h1>
             <div 
                 style={

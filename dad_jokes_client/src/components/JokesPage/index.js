@@ -21,7 +21,7 @@ const JokesPage = () => {
     
 
     return (
-        <div>
+        <div className="main-joke-container">
             <h1>Here are your Jokes!</h1>
             <p 
                 style={{ fontStyle:"italic" }}
