@@ -10,7 +10,6 @@ const Home = () => {
     const getJoke = async () => {
         const response = await fetch('/api/jokes/');
         const data = await response.json();
-        console.log(data)
         setJoke(data)
     };
 
