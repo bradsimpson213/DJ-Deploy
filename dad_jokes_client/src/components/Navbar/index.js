@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useJokes } from "../../context/JokesContext";
 import "./NavBar.css"
 
@@ -11,12 +11,14 @@ const Navbar = () => {
         <div 
           className='nav-bar'
         >
-             <img 
-                    src="https://res.cloudinary.com/app-academy4/image/upload/v1635974577/dad-jokes/why-did-the-litigation-support-professional-cross-the-road-blog-joke-png-300_200_fbffgs.png" 
-                    alt="little-site-logo"
-                    height="75px"
-                    width="125px"
-            />
+            <Link to="/">
+                <img 
+                        src="https://res.cloudinary.com/app-academy4/image/upload/v1635974577/dad-jokes/why-did-the-litigation-support-professional-cross-the-road-blog-joke-png-300_200_fbffgs.png" 
+                        alt="little-site-logo"
+                        height="75px"
+                        width="125px"
+                />
+             </Link>
             <NavLink 
                 exact to='/jokes'
                 className="button-link"
@@ -27,7 +29,7 @@ const Navbar = () => {
                 exact to='/jokes/new'
                 className="button-link"
             >
-                Add Joke
+                Add a Joke
             </NavLink>
             <div 
                 className="jokes-num"
@@ -46,12 +48,12 @@ const Navbar = () => {
                     onChange={ (e) => setNumJokes(e.target.value) }    
                 /> 
             </div>
-            <NavLink 
+            {/* <NavLink 
                 exact to='/'
                 className="button-link"
             >
                 Home
-            </NavLink>
+            </NavLink> */}
         </div>
     )
 };
